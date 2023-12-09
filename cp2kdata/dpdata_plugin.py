@@ -8,7 +8,9 @@ import os
 
 AU_TO_EV = EnergyConversion("hartree", "eV").value()
 AU_TO_ANG = LengthConversion("bohr", "angstrom").value()
-EV_ANG_m3_TO_GPa = PressureConversion("eV/angstrom^3", "GPa").value()
+###The the unit of stress in .stress file from cp2k MD simulation is Bar. The conversion factor should be between Bar and eV/A³, not between GPa and eV/A³. ####
+#EV_ANG_m3_TO_GPa = PressureConversion("eV/angstrom^3", "GPa").value()
+EV_ANG_m3_TO_GPa = PressureConversion("eV/angstrom^3", "bar").value()  #Keep the value name as the EV_ANG_m3_TO_GPa
 
 
 WRAPPER = "--- You are parsing data using package Cp2kData ---"
